@@ -1,0 +1,28 @@
+a {
+    cursor: pointer;
+}
+
+.card {
+    display: -webkit-box;
+}
+
+@media screen and (max-width: 576px) {
+    .btn {
+        font-size: .65rem;
+    }
+    .card {
+        display: inline-flex;
+        .col-2, 
+        .col-10 {
+            max-width: 100%;
+        }
+        .col-10 h4 {
+            overflow: auto;
+        }
+    }
+    .image-container {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
