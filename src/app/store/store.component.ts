@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductRepository } from './../../model/product-repository';
 import { Product } from 'src/model/product-model';
+import { Cart } from 'src/model/cart.model';
 
 @Component({
   selector: 'app-store',
@@ -13,7 +14,7 @@ export class StoreComponent implements OnInit {
   public productsPerPage = 4;
   public selectedPage = 1;
 
-  constructor(private repository: ProductRepository) { }
+  constructor(private repository: ProductRepository, private cart: Cart) { }
 
   ngOnInit(): void {
   }
@@ -41,10 +42,15 @@ export class StoreComponent implements OnInit {
     this.changePage(1);
   }
 
+  // Method will get the pageNumbers for the page buttons based on amount of products
   get pageNumbers(): number[] {
     return Array(Math.ceil(this.repository
       .getProducts(this.selectedCategory).length / this.productsPerPage))
       .fill(0).map((x, i) => i + 1);
+  }
+
+  addProductToCart(product: Product): void {
+    this.cart.addLine(product);
   }
 
   scrollToTop(): void {
