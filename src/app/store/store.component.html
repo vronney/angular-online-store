@@ -1,11 +1,11 @@
 <div class="container-fluid">
     <div class="row border-bottom">
-        <div class="col bg-light">
+        <div class="col bg-light fixed-top">
             <a class="navbar-brand text-dark">Online Store</a>
         </div>
     </div>
     <div class="row text-white">
-        <div class="col-3 p-2">
+        <div class="col-3 p-2 col-2 fixed-top mt-5">
             <button class="btn btn-block btn-outline-secondary" (click)="changeCategory()">
                 HOME
             </button>
@@ -16,9 +16,9 @@
                     {{ cat }}
             </button>
         </div>
-        <div class="col-9 p-2">
+        <div class="col-9 p-2 offset-sm-3 mt-5 product-container">
             <div *ngFor="let product of products"
-                class="card m-1 p-1 bg-light">
+                class="card mb-1 p-1 bg-light">
                 <div class="col-2 image-container">
                     <img [src]="product.image" class="card-img" [alt]="product.name">
                 </div>
@@ -45,7 +45,7 @@
             </div>
             <div class="btn-group float-right">
                 <button *ngFor="let page of pageNumbers" 
-                    (click)="changePage(page)" 
+                    (click)="changePage(page); scrollToTop()" 
                     class="btn btn-outline-secondary mr-1"
                     [class.active]="page === selectedPage">
                     {{ page }}
