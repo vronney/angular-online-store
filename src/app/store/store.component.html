@@ -6,7 +6,7 @@
     </div>
     <div class="row text-white">
         <div class="col-3 p-2 col-2 fixed-top mt-5">
-            <button class="btn btn-block btn-outline-secondary" (click)="changeCategory(); homePage()">
+            <button class="btn btn-block btn-outline-secondary" (click)="changeCategory(); homePage(); scrollToTop()">
                 HOME
             </button>
             <button *ngFor="let cat of categories"
