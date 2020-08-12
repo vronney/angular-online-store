@@ -54,6 +54,7 @@ export class StoreComponent implements OnInit {
 
   homePage(): void {
     this.selectedPage = 1;
+    this.scrollToTop();
   }
 
 }

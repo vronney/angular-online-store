@@ -6,7 +6,7 @@
     </div>
     <div class="row text-white">
         <div class="col-3 p-2 col-2 fixed-top mt-5">
-            <button class="btn btn-block btn-outline-secondary" (click)="changeCategory(); homePage(); scrollToTop()">
+            <button class="btn btn-block btn-outline-secondary" (click)="changeCategory(); homePage()">
                 HOME
             </button>
             <button *ngFor="let cat of categories"
@@ -38,7 +38,7 @@
             <div class="form-inline float-left mr-1">
                 <select class="form-control" 
                     [value]="productsPerPage"
-                    (click)="changePageSize($event.target.value)">
+                    (change)="changePageSize($event.target.value)">
                     <option value="4">Four Products Per Page</option>
                     <option value="6">Six Products Per Page</option>
                     <option value="8">Eight Products Per Page</option>
