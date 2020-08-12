@@ -1,6 +1,6 @@
-<div class="float-right">
+<div class="float-right cart-container">
     <small>
-        Your Cart:
+        Cart:
         <span *ngIf="cart.itemCount > 0">
             {{ cart.itemCount }} items(s)
             {{ cart.cartPrice | currency: "USD": "symbol": "2.2-2" }}

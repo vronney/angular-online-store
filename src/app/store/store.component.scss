@@ -5,6 +5,11 @@ a {
 .card {
     display: -webkit-box;
 }
+.add-item-button {
+    position: absolute;
+    bottom: 0;
+    right: 3px;
+}
 
 @media screen and (max-width: 576px) {
     .btn {
@@ -32,6 +37,9 @@ a {
     .image-container {
         padding-left: 0;
         padding-right: 0;
+    }
+    .product-description-container {
+        margin-bottom: 30px !important;
     }
 }
 

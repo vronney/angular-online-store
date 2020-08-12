@@ -31,10 +31,10 @@
                             {{ product.price | currency: "USD": "symbol": "2.2-2"}}
                         </span>
                     </h4>
-                    <div class="card-text bg-white p-1 text-dark">
+                    <div class="card-text bg-white p-1 text-dark mb-5 product-description-container">
                         {{ product.description }}
                     </div>
-                    <button class="btn btn-warning btn-small float-right"
+                    <button class="btn btn-warning btn-small float-right mt-2 add-item-button"
                                 (click)="addProductToCart(product)">
                                 Add To Cart
                     </button>
