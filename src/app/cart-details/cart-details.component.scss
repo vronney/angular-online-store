@@ -1,0 +1,12 @@
+@media screen and (max-width: 576px) {
+    .cart-container-fluid {
+        width: fit-content;
+    }
+    .cart-container-table {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    table th {
+        width: auto;
+    }
+}

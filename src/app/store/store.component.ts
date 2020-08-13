@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProductRepository } from './../../model/product-repository';
 import { Product } from 'src/model/product-model';
 import { Cart } from 'src/model/cart.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-store',
@@ -14,7 +15,11 @@ export class StoreComponent implements OnInit {
   public productsPerPage = 4;
   public selectedPage = 1;
 
-  constructor(private repository: ProductRepository, private cart: Cart) { }
+  constructor(
+    private repository: ProductRepository,
+    private cart: Cart,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
   }
@@ -51,6 +56,7 @@ export class StoreComponent implements OnInit {
 
   addProductToCart(product: Product): void {
     this.cart.addLine(product);
+    this.router.navigateByUrl('/cart-details');
   }
 
   scrollToTop(): void {

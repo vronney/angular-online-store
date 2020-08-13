@@ -25,7 +25,7 @@ export class Cart {
     updateQuantity(product: Product, quantity: number): void {
         let line = this.lines.find(line => line.product.id === product.id);
         if (line !== undefined) {
-            line.quantity = Number(quantity);
+            line.quantity = quantity;
         }
         this.recalculate();
     }
@@ -46,7 +46,7 @@ export class Cart {
     }
 
     // Recalculate cart
-    private recalculate(): void {
+    recalculate(): void {
         this.itemCount = 0;
         this.cartPrice = 0;
         this.lines.forEach(item => {
