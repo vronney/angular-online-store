@@ -13,6 +13,8 @@ import { CartSummaryComponent } from './cart-summary/cart-summary.component';
 import { CartDetailsComponent } from './cart-details/cart-details.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { RouterModule } from '@angular/router';
+import { Order } from './../model/order.model';
+import { OrderRepository } from './../model/order.repository';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,13 @@ import { RouterModule } from '@angular/router';
     FormsModule,
     RouterModule
   ],
-  providers: [ProductRepository, StaticDataSourceService, Cart],
+  providers: [
+    ProductRepository,
+    StaticDataSourceService,
+    Cart,
+    Order,
+    OrderRepository
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
