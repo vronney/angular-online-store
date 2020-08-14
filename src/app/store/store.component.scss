@@ -34,8 +34,14 @@
         padding-left: 0;
         padding-right: 0;
     }
+    .product-name {
+        font-size: .95rem;
+    }
     .product-description-container {
         margin-bottom: 30px !important;
+        .product-description {
+            font-size: .85em;
+        }
     }
 }
 

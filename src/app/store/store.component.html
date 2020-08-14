@@ -25,14 +25,16 @@
                     <img [src]="product.image" class="card-img" [alt]="product.name">
                 </div>
                 <div class="col-10 p-2">
-                    <h4 class="text-dark">
+                    <h4 class="text-dark product-name">
                         {{ product.name}}
                         <span class="badge badge-pill badge-primary float-right">
                             {{ product.price | currency: "USD": "symbol": "2.2-2"}}
                         </span>
                     </h4>
                     <div class="card-text bg-white p-1 text-dark mb-5 product-description-container">
-                        {{ product.description }}
+                        <p class="product-description">
+                            {{ product.description }}
+                        </p>
                     </div>
                     <button class="btn btn-warning btn-small float-right mt-2 add-item-button"
                                 (click)="addProductToCart(product)">
