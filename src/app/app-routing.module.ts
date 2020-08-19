@@ -4,6 +4,7 @@ import { StoreComponent } from './store/store.component';
 import { CartDetailsComponent } from './cart-details/cart-details.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { StoreGuard } from './store.guard';
+import { AdminComponent } from './admin/admin/admin.component';
 
 const routes: Routes = [
   {
@@ -19,6 +20,11 @@ const routes: Routes = [
   {
     path: 'checkout',
     component: CheckoutComponent,
+    canActivate: [StoreGuard]
+  },
+  {
+    path: 'admin',
+    loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule),
     canActivate: [StoreGuard]
   },
   {

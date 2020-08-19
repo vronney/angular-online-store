@@ -1,6 +1,6 @@
 <div class="container-fluid">
-    <div class="row border-bottom">
-        <div class="col bg-light fixed-top">
+    <div class="row">
+        <div class="col border-bottom bg-light fixed-top">
             <a class="navbar-brand text-dark">Online Store</a>
             <app-cart-summary></app-cart-summary>
         </div>
@@ -16,6 +16,11 @@
                     (click)="changeCategory(cat)"
                     [disabled]="selectedPage !== 1">
                     {{ cat }}
+            </button>
+            <!-- Admin Button -->
+            <button class="btn btn-block btn-outline-danger mt-3"
+                    routerLink="/admin">
+                Admin
             </button>
         </div>
         <div class="col-9 p-2 offset-sm-3 mt-5 product-container">

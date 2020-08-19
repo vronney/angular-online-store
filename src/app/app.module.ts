@@ -22,7 +22,7 @@ import { OrderRepository } from './../model/order.repository';
     StoreComponent,
     CartSummaryComponent,
     CartDetailsComponent,
-    CheckoutComponent
+    CheckoutComponent,
   ],
   imports: [
     BrowserModule,
