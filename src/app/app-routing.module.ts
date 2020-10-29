@@ -5,6 +5,7 @@ import { CartDetailsComponent } from './cart-details/cart-details.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { StoreGuard } from './store.guard';
 import { AdminComponent } from './admin/admin/admin.component';
+import { AuthGuard } from './admin/admin/auth.guard';
 
 const routes: Routes = [
   {
@@ -24,7 +25,7 @@ const routes: Routes = [
   },
   {
     path: 'admin',
-    loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule),
+    loadChildren: () => import('./admin/admin/admin.module').then(m => m.AdminModule),
     canActivate: [StoreGuard]
   },
   {
@@ -36,7 +37,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  providers: [StoreGuard],
+  providers: [StoreGuard, AuthGuard],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
+import { AuthService } from 'src/model/auth.service';
 
 @Component({
   selector: 'app-auth',
@@ -12,17 +13,23 @@ export class AuthComponent implements OnInit {
   public password: string;
   public errorMessage: string;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private auth: AuthService) {}
 
   ngOnInit(): void {
   }
 
   authenticate(form: NgForm): void {
     if (form.valid) {
-      // perform authentication
-      this.router.navigateByUrl('/admin/main');
-    } else {
-      this.errorMessage = 'Wrong credentials';
+      this.auth.authenticate(this.username, this.password)
+        .subscribe(response => {
+          if (response) {
+            this.router.navigateByUrl('/admin/main');
+          }
+          this.errorMessage = 'Authentication Failed';
+        });
+      } else {
+      this.errorMessage = 'Form Data Invalid';
     }
+    console.log('auth initiated');
   }
 }

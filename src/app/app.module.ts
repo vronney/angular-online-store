@@ -1,12 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { ProductRepository } from '../model/product-repository';
-import { StaticDataSourceService } from '../model/static-data-source';
 import { StoreComponent } from './store/store.component';
 import { Cart } from './../model/cart.model';
 import { CartSummaryComponent } from './cart-summary/cart-summary.component';
@@ -15,6 +15,9 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { RouterModule } from '@angular/router';
 import { Order } from './../model/order.model';
 import { OrderRepository } from './../model/order.repository';
+import { AuthService } from 'src/model/auth.service';
+import { AdminModule } from './admin/admin/admin.module';
+import { RestDataSource } from 'src/model/rest.datasource';
 
 @NgModule({
   declarations: [
@@ -28,14 +31,18 @@ import { OrderRepository } from './../model/order.repository';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    RouterModule
+    ReactiveFormsModule,
+    RouterModule,
+    HttpClientModule,
+    AdminModule
   ],
   providers: [
     ProductRepository,
-    StaticDataSourceService,
     Cart,
     Order,
-    OrderRepository
+    OrderRepository,
+    AuthService,
+    RestDataSource
   ],
   bootstrap: [AppComponent]
 })
